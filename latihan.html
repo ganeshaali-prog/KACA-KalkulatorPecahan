@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+            background: #2b0a0a;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 900px;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        #latihanPage {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('5.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            padding: 20vh 10%;
+        }
+
+        .bg {
+            width: 100%;
+            display: block;
+        }
+
+        .btn {
+            position: absolute;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .btn:hover {
+            background: transparent;
+            transform: scale(1.05);
+        }
+        
+        #menu {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('1.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            padding: 20vh 12% 5vw 12%;
+            box-sizing: border-box;
+            
+        }
+
+        .mulai {
+            top: 60%;
+            left: 41%;
+            width: 19%;
+            height: 11%;
+            border-radius: 30px;
+            background: transparent;
+        }
+
+        .panduan {
+            top: 69%;
+            left: 29%;
+            width: 18%;
+            height: 10%;
+            border-radius: 30px;
+            background: transparent;
+        }
+
+        .latihan {
+            top: 69%;
+            left: 53%;
+            width: 18%;
+            height: 10%;
+            border-radius: 30px;
+            background: transparent;
+        }
+
+        #app {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('5.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            padding: 20vh 12% 5vw 12%;
+            box-sizing: border-box;
+        
+        }
+        #panduanPage {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('2.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            padding: 20vh 12% 5vw 12%;
+            box-sizing: border-box;
+        
+        }
+
+        #Panduan2 {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('3.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            padding: 20vh 12% 5vw 12%;
+            box-sizing: border-box;
+            
+        }
+
+        .homePanduan {
+            top: 85%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            
+        }
+        .nextPanduan {
+            top: 85%;
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            
+        }
+
+        .backPanduan {
+            top: 85%;
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            
+        }
+
+        .home-btn {
+            position: absolute;
+            bottom: 1%;
+            left: 9.5%;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .homePanduan {
+            position: absolute;
+            bottom: -1%;
+            left: 8%;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        #app h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #fff8e0;
+            margin: 0 0 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #8a1a1a;
+        }
+
+        .card {
+            position: relative;
+            background: linear-gradient(180deg, #fff8e0 0%, #ffe9b8 100%);
+            color: #2b0a0a;
+            padding: 22px 28px;
+            border-radius: 18px;
+            box-shadow:
+                0 6px 0 #7a0d12,
+                0 10px 24px rgba(0, 0, 0, 0.45),
+                inset 0 0 0 3px #c8161d,
+                inset 0 0 0 6px #fff8e0,
+                inset 0 0 0 8px #c8161d;
+            margin: 0 auto 22px auto;
+            max-width: 560px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card::before,
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            background: #ffd84d;
+            border: 2px solid #7a0d12;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 6px rgba(255, 216, 77, 0.8);
+        }
+
+        .card::before {
+            left: -7px;
+        }
+
+        .card::after {
+            right: -7px;
+        }
+
+        .jawab-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .jawab-row input[type="text"] {
+            padding: 10px 14px;
+            border: 2px solid #8a1a1a;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .action-btn {
+            background: #c8161d;
+            color: #fff8e0;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #7a0d12;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 0 #7a0d12;
+        }
+
+        .action-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #7a0d12;
+        }
+
+        #hasilCek {
+            text-align: center;
+            margin: 12px 0;
+            min-height: 24px;
+        }
+
+        .pecahan-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .pecahan {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .pecahan input[type="number"] {
+            width: 60px;
+            text-align: center;
+            font-size: 18px;
+            padding: 6px;
+            border: 2px solid #8a1a1a;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .frac-bar {
+            border-top: 3px solid #2b0a0a;
+            width: 60px;
+            margin: 4px auto;
+        }
+
+        #op {
+            font-size: 22px;
+            padding: 6px 10px;
+            border: 2px solid #8a1a1a;
+            border-radius: 8px;
+            background: #fff8e0;
+            cursor: pointer;
+        }
+
+        .canvas-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .canvas-row canvas {
+            background: linear-gradient(180deg, #fff8e0 0%, #ffe9b8 100%);
+            border-radius: 18px;
+            border: 2px solid #2b0a0a !important;
+            border-radius: 8px;
+        }
+
+        .symbol {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff8e0;
+            text-shadow: 2px 2px 0 #8a1a1a;
+        }
+
+        #output {
+            text-align: center;
+            color: #fff8e0;
+            margin: 18px 0;
+            text-shadow: 1px 1px 0 #8a1a1a;
+        }
+
+        .button-row {
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .button-row .action-btn {
+            margin: 0 6px;
+        }
+    </style>
+    <title>KACA</title>
+</head>
+
+<body>
+
+    <div id="menu" style="display:none;"
+        
+        <button class="btn mulai" onclick="goMulai()"></button>
+        <button class="btn panduan" onclick="goPanduan()"></button>
+        <button class="btn latihan" onclick="goLatihan()"></button>
+    </div>
+
+    <div id="panduanPage" style="display: none;">
+        <button class="btn homePanduan" onclick="goHome()"></button>
+        <button class="btn nextPanduan" onclick="goPanduan2()"></button>
+    </div>
+
+    <div id="Panduan2" style="display: none">
+        <button class="btn homePanduan" onclick="goHome()"></button>
+        <button class="btn backPanduan" onclick="goPanduan()"></button>
+    </div>
+
+    <div id="latihanPage" style="display:block;">
+        <button class="home-btn" onclick="goHome()"></button>
+         <h2 style="text-align:center; color:#fff8e0;">SOLVE!</h2>
+            <div class="card" style="width:180px; text-align:center;">
+             <div>Soal</div>
+                <p>1/2 + 2/6</p>
+                <input type="text" id="s1">
+                </div>
+            <div class="card" style="width:180px; text-align:center;">
+                <div>Soal</div>
+                <p>5/6 - 2/3</p>
+                <input type="text" id="s2">
+            </div>
+            <div class="card" style="width:180px; text-align:center;">
+                <div>Soal</div>
+                <p>1/4 × 2/5</p>
+                <input type="text" id="s3">
+            </div>
+            <div class="card" style="width:180px; text-align:center;">
+                <div>Soal</div>
+                <p>3/4 ÷ 1/5</p>
+                <input type="text" id="s4">
+            </div>
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+        <button class="action-btn" onclick="cekLatihan()">Cek Jawaban</button>
+    </div>
+    <h3 id="hasilLatihan" style="text-align:center; color:white;"></h3>
+    </div>
+
+
+    <div id="app" style="display: none;">
+
+        <button class="home-btn" onclick="goHome()" title="Kembali ke menu"></button>
+
+        <div class="card">
+            <div class="jawab-row">
+                <span>Jawaban kamu:</span>
+                <input type="text" id="jawaban" placeholder="contoh: 1/2 atau 0.5">
+                <button class="action-btn" onclick="cekJawaban()">Cek</button>
+            </div>
+            <h3 id="hasilCek"></h3>
+        </div>
+
+        <div class="card">
+            <div class="pecahan-row">
+                <div class="pecahan">
+                    <div>Pecahan 1</div>
+                    <input type="number" id="num1" value="2"><br>
+                    <div class="frac-bar"></div>
+                    <input type="number" id="den1" value="5">
+                </div>
+
+                <div>
+                    <select id="op">
+                        <option value="+">+</option>
+                        <option value="-">−</option>
+                        <option value="*">×</option>
+                        <option value="/">÷</option>
+                    </select>
+                </div>
+
+                <div class="pecahan">
+                    <div>Pecahan 2</div>
+                    <input type="number" id="num2" value="1"><br>
+                    <div class="frac-bar"></div>
+                    <input type="number" id="den2" value="3">
+                </div>
+            </div>
+
+            <div class="button-row">
+                <button class="action-btn" onclick="tampilkan()">Tampilkan</button>
+                <button class="action-btn" onclick="pindahkan()">Operasikan</button>
+            </div>
+        </div>
+
+        <h3 id="output"></h3>
+
+        <div class="canvas-row">
+            <canvas id="canvas1" width="150" height="150"></canvas>
+            <div class="symbol" id="opTampil">+</div>
+            <canvas id="canvas2" width="150" height="150"></canvas>
+            <div class="symbol">=</div>
+            <canvas id="canvas3" width="150" height="150"></canvas>
+        </div>
+
+        <script>
+            function goMulai() {
+                document.getElementById("menu").style.display = "none";
+                document.getElementById("app").style.display = "block";
+            }
+            function goHome() {
+                location.href = "index.html";
+            }
+            function goPanduan() {
+                document.getElementById("menu").style.display="none";
+                document.getElementById("app").style.display="none";
+                document.getElementById("panduanPage").style.display="block";
+            }
+            function goPanduan2() {
+                document.getElementById("panduanPage").style.display="none";
+                document.getElementById("Panduan2").style.display="block";
+            }
+            function goLatihan() {
+                    document.getElementById("menu").style.display="none";
+                    document.getElementById("app").style.display="none";
+                    document.getElementById("panduanPage").style.display="none";
+                    document.getElementById("latihanPage").style.display="block";
+            }
+            function cekLatihan(){
+                function parseInput(val){
+                    if (val.includes("/")) {
+                        let [a,b] = val.split("/");
+                        return parseFloat(a)/ parseFloat(b);
+                    }
+                return parseFloat(val)
+                }
+            let kunci = [
+                 5/6,
+                1/6,
+                1/10,
+                15/4
+                ];
+            let jawaban = [
+            parseInput(document.getElementById("s1").value),
+            parseInput(document.getElementById("s2").value),
+            parseInput(document.getElementById("s3").value),
+            parseInput(document.getElementById("s4").value)
+            ];
+            let benar = 0;
+                for (let i = 0; i < 4; i++) {
+                if (Math.abs(jawaban[i] - kunci[i]) < 0.01) {
+                    benar++;
+                    }
+                }
+            let hasil = document.getElementById("hasilLatihan");
+            hasil.innerText = `Kamu benar ${benar} dari 4 soal`;
+            }
+
+            function pindahkan() {
+                let n1 = parseInt(document.getElementById("num1").value);
+                let d1 = parseInt(document.getElementById("den1").value);
+                let n2 = parseInt(document.getElementById("num2").value);
+                let d2 = parseInt(document.getElementById("den2").value);
+                let op = document.getElementById("op").value;
+                let canvas3 = document.getElementById("canvas3");
+                let ctx = canvas3.getContext("2d");
+                let boxSize = 150;
+                let gap = 10;
+                let kapasitas = d1 * d2;
+
+
+                function buatGridAwal() {
+                    let grid = [];
+
+                    for (let i = 0; i < d2; i++) {
+                        for (let j = 0; j < d1; j++) {
+
+                            let isRed = j < n1;
+                            let isBlue = i < n2;
+
+                            if (isRed && isBlue) grid.push("purple");
+                            else if (isRed) grid.push("red");
+                            else if (isBlue) grid.push("blue");
+                            else grid.push("white");
+                        }
+                    }
+                    return grid;
+                }
+
+                function render(result, extra = []) {
+
+                    let totalBox = 1 + Math.ceil(extra.length / kapasitas);
+
+                    canvas3.width = totalBox * boxSize + (totalBox - 1) * gap;
+                    canvas3.height = boxSize;
+
+                    ctx.clearRect(0, 0, canvas3.width, canvas3.height);
+
+                    let cellW = boxSize / d1;
+                    let cellH = boxSize / d2;
+
+
+                    for (let i = 0; i < d2; i++) {
+                        for (let j = 0; j < d1; j++) {
+
+                            let idx = i * d1 + j;
+
+                            let x = j * cellW;
+                            let y = i * cellH;
+
+                            ctx.fillStyle = result[idx];
+                            ctx.fillRect(x, y, cellW, cellH);
+                            ctx.strokeRect(x, y, cellW, cellH);
+                        }
+                    }
+
+
+                    let idxExtra = 0;
+
+                    for (let b = 1; b < totalBox; b++) {
+                        let offsetX = b * (boxSize + gap);
+
+                        for (let i = 0; i < d2; i++) {
+                            for (let j = 0; j < d1; j++) {
+
+                                let x = offsetX + j * cellW;
+                                let y = i * cellH;
+
+                                if (idxExtra < extra.length) {
+                                    ctx.fillStyle = extra[idxExtra++];
+                                } else {
+                                    ctx.fillStyle = "white";
+                                }
+
+                                ctx.fillRect(x, y, cellW, cellH);
+                                ctx.strokeRect(x, y, cellW, cellH);
+                            }
+                        }
+                    }
+                }
+
+                if (op === "+") {
+
+                    let result = buatGridAwal();
+                    let extra = [];
+
+                    let whites = [];
+                    let purples = [];
+
+                    for (let i = 0; i < result.length; i++) {
+                        if (result[i] === "white") whites.push(i);
+                        if (result[i] === "purple") purples.push(i);
+                    }
+
+                    let w = 0;
+
+                    for (let p = 0; p < purples.length; p++) {
+
+                        if (w < whites.length) {
+                            result[whites[w]] = "blue";
+                            result[purples[p]] = "red";
+                            w++;
+                        } else {
+                            extra.push("blue");
+                            result[purples[p]] = "red";
+                        }
+                    }
+
+                    render(result, extra);
+                }
+
+                else if (op === "-") {
+
+                    let result = [];
+
+                    // total grid
+                    let total = d1 * d2;
+
+                    // jumlah merah
+                    let merahTotal = n1 * d2;
+
+                    // jumlah biru
+                    let biruTotal = n2 * d1;
+
+                    for (let i = 0; i < total; i++) {
+
+                        // awalnya putih
+                        let warna = "white";
+
+                        // isi merah dulu
+                        if (i < merahTotal) {
+                            warna = "red";
+                        }
+
+                        // lalu biru menimpa merah jadi ungu
+                        if (i < biruTotal && i < merahTotal) {
+                            warna = "purple";
+                        }
+
+                        result.push(warna);
+                    }
+
+                    render(result);
+                }
+
+                else if (op === "*") {
+
+                    let result = [];
+
+                    for (let i = 0; i < d2; i++) {
+                        for (let j = 0; j < d1; j++) {
+
+                            let isRed = j < n1;
+                            let isBlue = i < n2;
+
+                            if (isRed && isBlue) {
+                                result.push("purple");
+                            } else {
+                                result.push("white");
+                            }
+                        }
+                    }
+
+                    render(result);
+                }
+                else if (op === "/") {
+                    tampilkan();
+                    return;
+                }
+            }
+
+            function gcd(a, b) {
+                return b === 0 ? a : gcd(b, a % b);
+            }
+            function cekJawaban() {
+                let n1 = parseInt(document.getElementById("num1").value);
+                let d1 = parseInt(document.getElementById("den1").value);
+                let n2 = parseInt(document.getElementById("num2").value);
+                let d2 = parseInt(document.getElementById("den2").value);
+
+                let op = document.getElementById("op").value;
+                let input = document.getElementById("jawaban").value.trim();
+
+                let hasilPembilang, hasilPenyebut;
+
+                if (op === "+") {
+                    hasilPembilang = n1 * d2 + n2 * d1;
+                    hasilPenyebut = d1 * d2;
+                }
+                else if (op === "-") {
+
+                    let merahTotal = n1 * d2;
+                    let biruTotal = n2 * d1;
+
+                    let overlap = Math.min(merahTotal, biruTotal);
+
+                    let sisaMerah = merahTotal - overlap;
+                    let sisaBiru = biruTotal - overlap;
+
+
+                    if (sisaMerah === 0 && sisaBiru > 0) {
+                        hasilPembilang = -sisaBiru;
+                    } else {
+                        hasilPembilang = sisaMerah;
+                    }
+
+                    hasilPenyebut = d1 * d2;
+                }
+                else if (op === "*") {
+                    hasilPembilang = n1 * n2;
+                    hasilPenyebut = d2 * d1;
+
+                }
+                else if (op === "/") {
+                    hasilPembilang = n1 * d2;
+                    hasilPenyebut = n2 * d1;
+                }
+
+                // cek
+                let g = gcd(hasilPembilang, hasilPenyebut);
+                hasilPembilang /= g;
+                hasilPenyebut /= g;
+
+                let hasilDesimal = hasilPembilang / hasilPenyebut;
+
+                let benar = false;
+
+                if (input.includes("/")) {
+                    let parts = input.split("/");
+                    if (parts.length === 2) {
+                        let a = parseFloat(parts[0]);
+                        let b = parseFloat(parts[1]);
+
+                        if (!isNaN(a) && !isNaN(b) && b !== 0) {
+                            let g2 = gcd(a, b);
+                            a /= g2;
+                            b /= g2;
+
+                            if (a === hasilPembilang && b === hasilPenyebut) {
+                                benar = true;
+                            }
+                        }
+                    }
+                }
+
+                else {
+                    let val = parseFloat(input);
+
+                    if (!isNaN(val)) {
+
+                        let decimalPart = input.split(".")[1];
+                        let digit = decimalPart ? decimalPart.length : 0;
+
+                        let toleransi = 0.5 * Math.pow(10, -digit);
+
+                        if (Math.abs(val - hasilDesimal) < toleransi) {
+                            benar = true;
+                        }
+                    }
+                }
+
+                let out = document.getElementById("hasilCek");
+
+                if (benar) {
+                    out.innerText = "✅ Benar!";
+                    out.style.color = "green";
+                } else {
+                    out.innerText = `❌ Salah. Jawaban: ${hasilPembilang}/${hasilPenyebut} (${hasilDesimal})`;
+                    out.style.color = "red";
+                }
+            }
+            function tampilkan() {
+                let n1 = parseInt(document.getElementById("num1").value);
+                let d1 = parseInt(document.getElementById("den1").value);
+                let n2 = parseInt(document.getElementById("num2").value);
+                let d2 = parseInt(document.getElementById("den2").value);
+                let op = document.getElementById("op").value;
+                document.getElementById("opTampil").innerText = op;
+
+
+                let teks = n1 + "/" + d1 + " " + op + " " + n2 + "/" + d2;
+                document.getElementById("output").innerText = "Operasi: " + teks;
+
+                let canvas1 = document.getElementById("canvas1");
+                let ctx = canvas1.getContext("2d");
+
+                let gap = 10;
+                let boxSize = 150;
+
+                let full = Math.floor(n1 / d1);
+                let sisa = n1 % d1;
+
+                let totalBox = (sisa === 0) ? full : full + 1;
+                if (totalBox === 0) totalBox = 1;
+
+                canvas1.width = totalBox * boxSize + (totalBox - 1) * gap;
+                canvas1.height = boxSize;
+
+                ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+
+                for (let k = 0; k < full; k++) {
+                    let offsetX = k * (boxSize + gap);
+
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(offsetX, 0, boxSize, boxSize);
+
+                    let cell = boxSize / d1;
+
+                    ctx.strokeStyle = "black";
+                    ctx.lineWidth = 2;
+
+                    for (let i = 0; i < d1; i++) {
+                        ctx.strokeRect(offsetX + i * cell, 0, cell, boxSize);
+                    }
+                }
+
+                if (sisa > 0) {
+                    let offsetX = full * (boxSize + gap);
+                    let cell = boxSize / d1;
+
+                    ctx.fillStyle = "red";
+                    for (let i = 0; i < sisa; i++) {
+                        ctx.fillRect(offsetX + i * cell, 0, cell, boxSize);
+                    }
+
+                    ctx.strokeStyle = "black";
+                    for (let i = 0; i < d1; i++) {
+                        ctx.strokeRect(offsetX + i * cell, 0, cell, boxSize);
+                    }
+                }
+
+                let canvas2 = document.getElementById("canvas2");
+                let ctx2 = canvas2.getContext("2d");
+
+                let gap2 = 10;
+                let boxSize2 = 150;
+
+                let full2 = Math.floor(n2 / d2);
+                let sisa2 = n2 % d2;
+
+                let totalBox2 = (sisa2 === 0) ? full2 : full2 + 1;
+                if (totalBox2 === 0) totalBox2 = 1;
+
+                canvas2.width = totalBox2 * boxSize2 + (totalBox2 - 1) * gap2;
+                canvas2.height = boxSize2;
+
+                ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+                for (let k = 0; k < full2; k++) {
+                    let offsetX = k * (boxSize2 + gap2);
+
+                    ctx2.fillStyle = "blue";
+                    ctx2.fillRect(offsetX, 0, boxSize2, boxSize2);
+
+                    let cell2 = boxSize2 / d2;
+
+                    ctx2.strokeStyle = "black";
+                    ctx2.lineWidth = 2;
+
+                    for (let i = 0; i < d2; i++) {
+                        ctx2.strokeRect(offsetX, i * cell2, boxSize2, cell2);
+                    }
+                }
+
+                if (sisa2 > 0) {
+                    let offsetX = full2 * (boxSize2 + gap2);
+                    let cell2 = boxSize2 / d2;
+
+                    ctx2.fillStyle = "blue";
+                    for (let i = 0; i < sisa2; i++) {
+                        ctx2.fillRect(offsetX, i * cell2, boxSize2, cell2);
+                    }
+
+                    ctx2.strokeStyle = "black";
+                    for (let i = 0; i < d2; i++) {
+                        ctx2.strokeRect(offsetX, i * cell2, boxSize2, cell2);
+                    }
+                }
+
+                let canvas3 = document.getElementById("canvas3");
+                let ctx3 = canvas3.getContext("2d");
+
+                let boxSize3 = 150;
+
+                canvas3.width = boxSize3;
+                canvas3.height = boxSize3;
+
+                ctx3.clearRect(0, 0, boxSize3, boxSize3);
+
+
+                let cellW = boxSize3 / d1;
+                let cellH = boxSize3 / d2;
+
+                for (let i = 0; i < d2; i++) {
+                    for (let j = 0; j < d1; j++) {
+
+                        let x = j * cellW;
+                        let y = i * cellH;
+
+                        let isRed = j < n1;
+                        let isBlue = i < n2;
+
+
+                        if (isRed && isBlue) {
+                            ctx3.fillStyle = "purple";
+                        } else if (isRed) {
+                            ctx3.fillStyle = "red";
+                        } else if (isBlue) {
+                            ctx3.fillStyle = "blue";
+                        } else {
+                            ctx3.fillStyle = "white";
+                        }
+
+                        ctx3.fillRect(x, y, cellW, cellH);
+
+                        ctx3.strokeStyle = "black";
+                        ctx3.strokeRect(x, y, cellW, cellH);
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
